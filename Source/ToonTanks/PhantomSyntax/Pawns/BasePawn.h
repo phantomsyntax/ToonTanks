@@ -31,8 +31,7 @@ private:
 	USceneComponent* ProjectileSpawnPoint;	
 
 protected:
-	void RotateTurret(FVector LookAtTarget);
-	void Fire();
-
+	virtual void RotateTurret(FVector LookAtTarget);
+	virtual void Fire();
 	virtual void HandleDestruction();
 };

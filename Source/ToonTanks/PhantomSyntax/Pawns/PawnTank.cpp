@@ -34,6 +34,8 @@ void APawnTank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAxis("MoveForward", this, &APawnTank::CalculateMovement);
 	PlayerInputComponent->BindAxis("Turn", this, &APawnTank::CalculateRotation);
 
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &APawnTank::Fire);
+
 }
 
 void APawnTank::CalculateMovement(float Value)
@@ -56,4 +58,9 @@ void APawnTank::Move()
 void APawnTank::Rotate()
 {
 	AddActorLocalRotation(RotationDirection, true);
+}
+
+void APawnTank::Fire()
+{
+	Super::Fire();
 }

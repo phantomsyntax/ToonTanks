@@ -24,10 +24,16 @@ ABasePawn::ABasePawn()
 
 void ABasePawn::RotateTurret(FVector LookAtTarget)
 {
+	FVector Target = {LookAtTarget.X, LookAtTarget.Y, TurretMesh->GetComponentLocation().Z};
+	FVector StartLocation = TurretMesh->GetComponentLocation();
+	FRotator TurretRotation = FVector(Target - StartLocation).Rotation();
+	TurretMesh->SetWorldRotation(TurretRotation);
 }
 
 void ABasePawn::Fire()
 {
+	// Shoot behavior
+	UE_LOG(LogTemp, Warning, TEXT("Fire!"));
 }
 
 void ABasePawn::HandleDestruction()

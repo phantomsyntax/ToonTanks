@@ -23,6 +23,7 @@ class TOONTANKS_API APawnTank : public ABasePawn
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	virtual void Fire() override;
 
 public:
 	APawnTank();
