@@ -15,7 +15,7 @@ APawnTank::APawnTank()
 void APawnTank::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	PlayerControllerRef = Cast<APlayerController>(GetController());
 }
 
 // Called every frame
@@ -25,6 +25,14 @@ void APawnTank::Tick(float DeltaTime)
 
 	Move();
 	Rotate();
+
+	if (PlayerControllerRef)
+	{
+		FHitResult TraceHitResult;
+		PlayerControllerRef->GetHitResultUnderCursor(ECC_Visibility, false, TraceHitResult);
+		FVector HitResult = TraceHitResult.ImpactPoint;
+		RotateTurret(HitResult);
+	}
 }
 
 // Called to bind functionality to input
@@ -63,4 +71,11 @@ void APawnTank::Rotate()
 void APawnTank::Fire()
 {
 	Super::Fire();
+}
+
+void APawnTank::HandleDestruction()
+{
+	Super::HandleDestruction();
+	// Particles, SFX, etc..
+	// Create stop movement function
 }

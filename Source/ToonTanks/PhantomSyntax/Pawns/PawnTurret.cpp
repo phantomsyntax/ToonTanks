@@ -29,6 +29,12 @@ void APawnTurret::RotateTurret(FVector LookAtTarget)
 	Super::RotateTurret(LookAtTarget);
 }
 
+void APawnTurret::HandleDestruction()
+{
+	Super::HandleDestruction();
+	// Particles, SFX, etc..
+}
+
 // Called every frame
 void APawnTurret::Tick(float DeltaTime)
 {

@@ -24,6 +24,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	virtual void Fire() override;
+	virtual void HandleDestruction() override;
 
 public:
 	APawnTank();
@@ -53,5 +54,7 @@ private:
 	float MoveSpeed = 150.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement Components", meta = (AllowPrivateAccess = "true"))
 	float RotateSpeed = 100.0f;
+
+	APlayerController* PlayerControllerRef;
 	
 };
