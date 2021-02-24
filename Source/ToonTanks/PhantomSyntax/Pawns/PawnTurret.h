@@ -20,6 +20,7 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void RotateTurret(FVector LookAtTarget) override;
 	virtual void HandleDestruction() override;
+	virtual void Fire() override;
 	
 public:
 	APawnTurret();

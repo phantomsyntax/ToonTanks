@@ -2,6 +2,7 @@
 
 
 #include "ToonTanks/PhantomSyntax/Pawns/BasePawn.h"
+#include "ToonTanks/PhantomSyntax/Actors/ProjectileBase.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -32,6 +33,13 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 
 void ABasePawn::Fire()
 {
+	if (ProjectileClass)
+	{
+		FVector ProjectileLocation = ProjectileSpawnPoint->GetComponentLocation();
+		FRotator ProjectileRotation = ProjectileSpawnPoint->GetComponentRotation();
+		AProjectileBase* TempProjectile = GetWorld()->SpawnActor<AProjectileBase>(ProjectileClass, ProjectileLocation, ProjectileRotation);
+		TempProjectile->SetOwner(this);
+	}
 	// Shoot behavior
 	UE_LOG(LogTemp, Warning, TEXT("Fire!"));
 }

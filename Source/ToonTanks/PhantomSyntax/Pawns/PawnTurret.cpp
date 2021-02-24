@@ -35,6 +35,11 @@ void APawnTurret::HandleDestruction()
 	// Particles, SFX, etc..
 }
 
+void APawnTurret::Fire()
+{
+	Super::Fire();
+}
+
 // Called every frame
 void APawnTurret::Tick(float DeltaTime)
 {
@@ -48,7 +53,7 @@ void APawnTurret::Tick(float DeltaTime)
 void APawnTurret::CheckFireCondition()
 {
 		UE_LOG(LogTemp, Warning, TEXT("Fire Condition Checked"));
-
+		Fire();
 }
 
 float APawnTurret::ReturnPlayerDistance()

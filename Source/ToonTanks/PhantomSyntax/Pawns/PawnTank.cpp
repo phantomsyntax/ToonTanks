@@ -7,7 +7,7 @@ APawnTank::APawnTank()
 {
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("Spring Arm"));
 	SpringArmComponent->SetupAttachment(RootComponent);
-	PlayerCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Player Camer"));
+	PlayerCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Player Camera"));
 	PlayerCamera->SetupAttachment(SpringArmComponent);
 }
 
@@ -26,6 +26,7 @@ void APawnTank::Tick(float DeltaTime)
 	Move();
 	Rotate();
 
+	// Handles rotating tank turret via the mouse
 	if (PlayerControllerRef)
 	{
 		FHitResult TraceHitResult;
