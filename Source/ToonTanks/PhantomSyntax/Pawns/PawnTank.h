@@ -24,7 +24,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	virtual void Fire() override;
-	virtual void HandleDestruction() override;
 
 public:
 	APawnTank();
@@ -35,6 +34,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
+	virtual void HandleDestruction() override;
 private:
 	// Camera and Springarm
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Camera Components", meta = (AllowPrivateAccess = "true"))
