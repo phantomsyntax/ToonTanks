@@ -2,6 +2,8 @@
 
 
 #include "ToonTanks/PhantomSyntax/Pawns/BasePawn.h"
+
+#include "Kismet/GameplayStatics.h"
 #include "ToonTanks/PhantomSyntax/Actors/ProjectileBase.h"
 
 // Sets default values
@@ -46,5 +48,6 @@ void ABasePawn::Fire()
 
 void ABasePawn::HandleDestruction()
 {
-	
+	// Universal (s)pawn death particle
+	UGameplayStatics::SpawnEmitterAtLocation(this, DeathParticle, GetActorLocation());
 }

@@ -34,6 +34,9 @@ private:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Projectiles", meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<AProjectileBase> ProjectileClass;
+
+	UPROPERTY(EditAnywhere, Category = "Particles")
+	UParticleSystem* DeathParticle;
 	
 protected:
 	virtual void RotateTurret(FVector LookAtTarget);
