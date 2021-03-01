@@ -33,6 +33,7 @@ void APawnTurret::HandleDestruction()
 {
 	Super::HandleDestruction();
 	// Particles, SFX, etc..
+	Destroy();
 }
 
 void APawnTurret::Fire()

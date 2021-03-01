@@ -16,7 +16,10 @@ class TOONTANKS_API ATankGameModeBase : public AGameModeBase
 
 protected:
 	void BeginPlay() override;
-
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Game Loop")
+	int32 StartDelay = 3;
+	
 	UFUNCTION(BlueprintImplementableEvent)
 	void GameStart();
 	UFUNCTION(BlueprintImplementableEvent)
