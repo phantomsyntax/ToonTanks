@@ -53,8 +53,16 @@ void APawnTurret::Tick(float DeltaTime)
 
 void APawnTurret::CheckFireCondition()
 {
+	if (PlayerPawn->GetIsPlayerAlive())
+	{
 		UE_LOG(LogTemp, Warning, TEXT("Fire Condition Checked"));
 		Fire();
+	}
+	else
+	{
+		// Stops Turret firing timer
+		GetWorldTimerManager().ClearTimer(FireRateTimerHandler);
+	}
 }
 
 float APawnTurret::ReturnPlayerDistance()

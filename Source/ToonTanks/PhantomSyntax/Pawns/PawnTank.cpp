@@ -69,6 +69,11 @@ void APawnTank::Rotate()
 	AddActorLocalRotation(RotationDirection, true);
 }
 
+bool APawnTank::GetIsPlayerAlive()
+{
+	return bIsPlayerAlive;
+}
+
 void APawnTank::Fire()
 {
 	Super::Fire();
@@ -79,4 +84,7 @@ void APawnTank::HandleDestruction()
 	Super::HandleDestruction();
 	// Particles, SFX, etc..
 	// Create stop movement function
+	SetActorHiddenInGame(true);
+	SetActorTickEnabled(false);
+	bIsPlayerAlive = false;
 }

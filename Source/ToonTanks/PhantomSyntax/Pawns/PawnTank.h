@@ -35,6 +35,9 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
 	virtual void HandleDestruction() override;
+
+	bool GetIsPlayerAlive();
+	
 private:
 	// Camera and Springarm
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Camera Components", meta = (AllowPrivateAccess = "true"))
@@ -56,5 +59,6 @@ private:
 	float RotateSpeed = 100.0f;
 
 	APlayerController* PlayerControllerRef;
+	bool bIsPlayerAlive = true;
 	
 };
