@@ -35,8 +35,13 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Projectiles", meta = (AllowPrivateAccess = "true"))
 	TSubclassOf<AProjectileBase> ProjectileClass;
 
+	// Particles
 	UPROPERTY(EditAnywhere, Category = "Particles")
 	UParticleSystem* DeathParticle;
+
+	// SFX
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sound Effects", meta = (AllowPrivateAccess = "true"))
+	USoundBase* DestroySound;
 	
 protected:
 	virtual void RotateTurret(FVector LookAtTarget);

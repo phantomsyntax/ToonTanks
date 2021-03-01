@@ -48,6 +48,7 @@ void ABasePawn::Fire()
 
 void ABasePawn::HandleDestruction()
 {
+	UGameplayStatics::SpawnSoundAtLocation(this, DestroySound, GetActorLocation());
 	// Universal (s)pawn death particle
 	UGameplayStatics::SpawnEmitterAtLocation(this, DeathParticle, GetActorLocation());
 }

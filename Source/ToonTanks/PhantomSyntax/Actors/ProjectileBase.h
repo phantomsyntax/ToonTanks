@@ -30,10 +30,17 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")
 	TSubclassOf<UDamageType> DamageType;
 
+	// Particles
 	UPROPERTY(EditAnywhere, Category = "Effects")
 	UParticleSystem* HitParticle;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Effects", meta = (AllowPrivateAccess = "true"))
 	UParticleSystemComponent* BulletTrail;
+
+	// SFX
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sound Effects", meta = (AllowPrivateAccess = "true"))
+	USoundBase* LaunchSound;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Sound Effects", meta = (AllowPrivateAccess = "true"))
+	USoundBase* HitSound;
 
 protected:
 	// Called when the game starts or when spawned
